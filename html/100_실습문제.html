@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 실습문제</title>
+    <link rel="stylesheet" href="../css/100_실습문제.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>jQuery 실습 문제 (10개)</h1>
+
+      <!-- 문제 1: 텍스트 내용 변경하기 -->
+      <div class="problem-section">
+        <h3>1. 텍스트 내용 변경하기</h3>
+        <p>버튼을 클릭하면 제목의 텍스트가 바뀝니다.</p>
+        <h2 id="p1-greeting">안녕하세요!</h2>
+        <button id="p1-changeBtn">텍스트 변경</button>
+      </div>
+
+      <!-- 문제 2: 이미지 숨기기/보이기 (토글) -->
+      <div class="problem-section">
+        <h3>2. 이미지 숨기기/보이기 (토글)</h3>
+        <p>버튼을 누를 때마다 이미지가 나타나거나 사라집니다.</p>
+        <button id="p2-toggleBtn">이미지 토글</button>
+        <br />
+        <img
+          id="p2-myImage"
+          src="https://placehold.co/600x400/a2d2ff/ffffff?text=jQuery!"
+          alt="placeholder"
+        />
+      </div>
+
+      <!-- 문제 3: 슬라이드 메뉴 만들기 -->
+      <div class="problem-section">
+        <h3>3. 슬라이드 메뉴 만들기</h3>
+        <p>버튼을 클릭하면 패널이 슬라이드 효과로 나타나거나 사라집니다.</p>
+        <button id="p3-menuBtn">메뉴 열기/닫기</button>
+        <div id="p3-menuPanel">메뉴 내용입니다.</div>
+      </div>
+
+      <!-- 문제 4: 입력값 실시간으로 따라 쓰기 -->
+      <div class="problem-section">
+        <h3>4. 입력값 실시간으로 따라 쓰기</h3>
+        <p>입력창에 글자를 입력하면 아래에 똑같이 표시됩니다.</p>
+        <input type="text" id="p4-myInput" placeholder="여기에 입력하세요..." />
+        <p>
+          따라쓰기:
+          <span
+            id="p4-displayText"
+            style="color: blue; font-weight: bold"
+          ></span>
+        </p>
+      </div>
+
+      <!-- 문제 5: 마우스 오버 효과 주기 -->
+      <div class="problem-section">
+        <h3>5. 마우스 오버 효과 주기</h3>
+        <p>상자에 마우스를 올리면 배경색이 바뀝니다.</p>
+        <div id="p5-hoverBox">마우스를 올려보세요</div>
+      </div>
+
+      <!-- 문제 6: 리스트에 항목 추가하기 -->
+      <div class="problem-section">
+        <h3>6. 리스트에 항목 추가하기</h3>
+        <p>버튼을 누르면 리스트에 새로운 항목이 추가됩니다.</p>
+        <button id="p6-addBtn">항목 추가</button>
+        <ul id="p6-myList">
+          <li>기본 항목</li>
+        </ul>
+      </div>
+
+      <!-- 문제 7: 클릭한 항목 제거하기 -->
+      <div class="problem-section">
+        <h3>7. 클릭한 항목 제거하기</h3>
+        <p>리스트의 항목을 클릭하면 해당 항목이 사라집니다.</p>
+        <ul id="p7-removableList">
+          <li>사과 (클릭하여 제거)</li>
+          <li>바나나 (클릭하여 제거)</li>
+          <li>오렌지 (클릭하여 제거)</li>
+        </ul>
+      </div>
+
+      <!-- 문제 8: 간단한 아코디언 패널 -->
+      <div class="problem-section">
+        <h3>8. 간단한 아코디언 패널</h3>
+        <p>질문을 클릭하면 답변이 펼쳐집니다.</p>
+        <div class="p8-question">질문 1: jQuery란 무엇인가요?</div>
+        <div class="p8-answer">JavaScript 라이브러리입니다.</div>
+        <div class="p8-question">질문 2: $(this)는 무엇을 의미하나요?</div>
+        <div class="p8-answer">이벤트를 발생시킨 HTML 요소를 가리킵니다.</div>
+      </div>
+
+      <!-- 문제 9: 숫자 카운터 만들기 -->
+      <div class="problem-section">
+        <h3>9. 숫자 카운터 만들기</h3>
+        <p>'증가'와 '감소' 버튼으로 숫자를 조작합니다.</p>
+        <button id="p9-decreaseBtn">-</button>
+        <span id="p9-countDisplay">0</span>
+        <button id="p9-increaseBtn">+</button>
+      </div>
+
+      <!-- 문제 10: CSS 속성 애니메이션 -->
+      <div class="problem-section">
+        <h3>10. CSS 속성 애니메이션</h3>
+        <p>버튼을 누르면 상자의 크기와 위치가 부드럽게 변합니다.</p>
+        <button id="p10-animateBtn">애니메이션 시작</button>
+        <div id="p10-myBox"></div>
+      </div>
+    </div>
+    <script src="../js/100_실습문제.js"></script>
+  </body>
+</html>

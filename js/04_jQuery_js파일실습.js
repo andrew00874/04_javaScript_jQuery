@@ -17,9 +17,7 @@ $(function () {
     $("#menu li").removeClass("active");
     $(this).addClass("active");
   });
-});
 
-$(function () {
   $("#menu li").mouseleave(function () {
     $(this).removeClass("active");
   });
@@ -36,9 +34,13 @@ $(function () {
     // 2. 값 중 하나라도 비어있는지 확인
     // addClass removeClass를 활용해서 4순위 class 스타일 추가하고 적용 설정
     if (name == "" || email == "" || message == "") {
+      $("#status").removeClass("green");
       $("#status").text("모든 항목을 작성해주세요.").addClass("red");
     } else {
       $("#status").text("문의가 정상적으로 접수되었습니다.").addClass("green");
+      $("#message").val("");
+      $("#name").val("");
+      $("#email").val("");
     }
   });
 });
