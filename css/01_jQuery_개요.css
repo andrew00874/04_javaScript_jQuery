@@ -1,0 +1,165 @@
+body {
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 56rem;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #4b5563;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.mission-section {
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.mission-section:last-child {
+  margin-bottom: 0;
+}
+
+button {
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#changeTextBtn {
+  background-color: #3b82f6;
+}
+#changeTextBtn:hover {
+  background-color: #2563eb;
+}
+
+#addClassBtn {
+  background-color: #22c55e;
+}
+#addClassBtn:hover {
+  background-color: #16a34a;
+}
+
+#removeClassBtn {
+  background-color: #ef4444;
+}
+#removeClassBtn:hover {
+  background-color: #dc2626;
+}
+
+#toggleClassBtn {
+  background-color: #8b5cf6;
+}
+#toggleClassBtn:hover {
+  background-color: #7c3aed;
+}
+
+#fadeOutBtn {
+  background-color: #374151;
+}
+#fadeOutBtn:hover {
+  background-color: #1f2937;
+}
+
+#fadeInBtn {
+  background-color: #6b7280;
+}
+#fadeInBtn:hover {
+  background-color: #4b5563;
+}
+
+#slideToggleBtn {
+  background-color: #14b8a6;
+}
+#slideToggleBtn:hover {
+  background-color: #0d9488;
+}
+
+#fetchDataBtn {
+  background-color: #f97316;
+}
+#fetchDataBtn:hover {
+  background-color: #ea580c;
+}
+
+#mission2-box {
+  width: 100%;
+  height: 6rem;
+  background-color: #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+#mission3-box {
+  width: 100%;
+  height: 8rem;
+  background-color: #7dd3fc;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+#ajax-result {
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  min-height: 100px;
+}
+
+#ajax-result .placeholder {
+  color: #9ca3af;
+}
+
+.highlight {
+  background-color: #fef08a;
+  border: 2px solid #facc15;
+  transform: scale(1.05);
+}
