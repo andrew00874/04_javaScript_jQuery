@@ -1,0 +1,39 @@
+body {
+  padding: 30px;
+}
+.container {
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+#box {
+  width: 100%;
+  height: 100px;
+  background-color: lightskyblue;
+  text-align: center;
+  line-height: 100px;
+  margin: 15px 0;
+  transition: all 0.2s; /* 부드러운 전환 효과 */
+}
+/* jQuery로 추가/제거할 하이라이트 클래스 */
+.highlight {
+  background-color: gold;
+  border: 2px solid orange;
+  transform: scale(1.1); /* 약간 커지는 효과 */
+}
+button {
+  padding: 10px 15px;
+}
+
+/* 
+transition: 바뀌는데 드는 시간
+transform : 요소의 모양을 변경하는 속성 -> 레이아웃에 영향 X , 시각적인 형태만 변경
+
+transition : all -> 모든 요소에 전환효과 주겠다
+             background-color 0.3s -> 배경색이 바뀔 때만 애니메이션 적용
+
+transition: all 0.3s;
+transform: scale(1.02);
+*/

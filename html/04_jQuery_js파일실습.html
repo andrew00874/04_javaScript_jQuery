@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <title>메뉴 강조하기</title>
+    <style>
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .active {
+        background-color: navy;
+        color: white;
+      }
+      form {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+      }
+      form label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      form input {
+        padding: 8px;
+        text-align: center;
+      }
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>네비게이션 메뉴</h1>
+    <ul id="menu">
+      <li>홈</li>
+      <li>서비스</li>
+      <li>포트폴리오</li>
+      <li>연락처</li>
+    </ul>
+    <h2>문의 양식</h2>
+    <form>
+      <label>
+        이름
+        <input type="text" id="name" placeholder="이름" /><br />
+      </label>
+      <label>
+        이메일
+        <input type="text" id="email" placeholder="이메일" /><br />
+      </label>
+      <label>
+        내용
+        <input type="text" id="message" placeholder="내용" /><br />
+      </label>
+      <button type="button" id="btn">보내기</button>
+      <p id="status"></p>
+    </form>
+    <script src="../js/04_jQuery_js파일실습.js"></script>
+  </body>
+</html>
