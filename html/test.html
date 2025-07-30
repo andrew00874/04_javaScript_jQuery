@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D 정육면체 드래그 회전</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #1a1a1a;
+        overflow: hidden;
+      }
+      .cube-container {
+        perspective: 1500px;
+      }
+
+      /* 🧠 1. 큐브의 틀 */
+      .cube {
+        width: 200px; /* 큐브의 크기 */
+        height: 200px;
+        position: relative;
+        transform-style: preserve-3d; /* 자식 요소들의 3D 위치를 보존 */
+        cursor: grab;
+      }
+
+      /* 🧠 2. 큐브 각 면의 공통 스타일 */
+      .face {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #fff3;
+        background-color: #fff3;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+      }
+
+      /* 🧠 3. 각 면을 3D 공간에 배치 */
+      /* translateZ 값은 큐브 크기의 절반 (200px / 2 = 100px) */
+      .front {
+        transform: rotateY(0deg) translateZ(100px);
+        background-color: #ef535099;
+      }
+      .back {
+        transform: rotateY(180deg) translateZ(100px);
+        background-color: #ab47bc99;
+      }
+      .right {
+        transform: rotateY(90deg) translateZ(100px);
+        background-color: #42a5f599;
+      }
+      .left {
+        transform: rotateY(-90deg) translateZ(100px);
+        background-color: #66bb6a99;
+      }
+      .top {
+        transform: rotateX(90deg) translateZ(100px);
+        background-color: #ffa72699;
+      }
+      .bottom {
+        transform: rotateX(-90deg) translateZ(100px);
+        background-color: #8d6e6399;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cube-container">
+      <div class="cube">
+        <div class="face front">1</div>
+        <div class="face back">2</div>
+        <div class="face right">3</div>
+        <div class="face left">4</div>
+        <div class="face top">5</div>
+        <div class="face bottom">6</div>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript 로직은 이전 코드와 거의 동일합니다.
+      // 제어 대상을 '.card'에서 '.cube'로 변경하기만 하면 됩니다.
+      $(function () {
+        const $cube = $(".cube");
+
+        let isDragging = false;
+        let lastX, lastY;
+        let currentRotateX = -25; // 초기 각도를 약간 비스듬하게
+        let currentRotateY = -25;
+        let velocityX = 0;
+        let velocityY = 0;
+        const friction = 0.92;
+        let animationFrameId;
+
+        const initialRotateX = -25;
+        const initialRotateY = -25;
+
+        $cube.css(
+          "transform",
+          `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`
+        );
+
+        $cube.on("mousedown", function (e) {
+          cancelAnimationFrame(animationFrameId);
+          isDragging = true;
+          $cube.css("transition", "none");
+          $cube.css("cursor", "grabbing");
+          lastX = e.pageX;
+          lastY = e.pageY;
+          velocityX = 0;
+          velocityY = 0;
+          e.preventDefault();
+        });
+
+        $(document).on("mousemove", function (e) {
+          if (!isDragging) return;
+          const deltaX = e.pageX - lastX;
+          const deltaY = e.pageY - lastY;
+          velocityX = deltaX;
+          velocityY = deltaY;
+          currentRotateY += velocityX * 0.5;
+          currentRotateX -= velocityY * 0.5;
+          $cube.css(
+            "transform",
+            `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`
+          );
+          lastX = e.pageX;
+          lastY = e.pageY;
+        });
+
+        $(document).on("mouseup", function () {
+          if (!isDragging) return;
+          isDragging = false;
+          $cube.css("cursor", "grab");
+          applyInertia();
+        });
+
+        function applyInertia() {
+          currentRotateY += velocityX;
+          currentRotateX -= velocityY;
+          velocityX *= friction;
+          velocityY *= friction;
+          $cube.css(
+            "transform",
+            `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`
+          );
+
+          if (Math.abs(velocityX) > 0.1 || Math.abs(velocityY) > 0.1) {
+            animationFrameId = requestAnimationFrame(applyInertia);
+          } else {
+            $cube.css(
+              "transition",
+              "transform 2s cubic-bezier(0.23, 1, 0.32, 1)"
+            );
+            $cube.css(
+              "transform",
+              `rotateX(${initialRotateX}deg) rotateY(${initialRotateY}deg)`
+            );
+            currentRotateX = initialRotateX;
+            currentRotateY = initialRotateY;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

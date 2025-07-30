@@ -12,17 +12,26 @@ this : 사용자가 클릭한 <li> 태그만 바라봄
         사용자가 클릭한 menu li 태그를 바라보는 것
 */
 
-$(function () {
-  $("#menu li").hover(function () {
+// $(function () {
+//   $("#menu li").hover(function () {
+//     $("#menu li").removeClass("active");
+//     $(this).addClass("active");
+//   });
+
+//   $("#menu li").mouseleave(function () {
+//     $(this).removeClass("active");
+//   });
+// });
+
+$("#menu li").hover(
+  function () {
     $("#menu li").removeClass("active");
     $(this).addClass("active");
-  });
-
-  $("#menu li").mouseleave(function () {
+  },
+  function () {
     $(this).removeClass("active");
-  });
-});
-
+  }
+);
 // -- 문의양식 제출 기능 -- //
 $(function () {
   $("#btn").click(() => {
