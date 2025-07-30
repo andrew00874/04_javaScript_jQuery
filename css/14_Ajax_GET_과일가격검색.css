@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap");
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 500;
+  color: #333;
+  flex-shrink: 0;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  white-space: nowrap;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+#검색기능 {
+  background-color: #007bff;
+  color: white;
+}
+
+#검색기능:hover {
+  background-color: #0056b3;
+}
+
+#검색초기화 {
+  background-color: #6c757d;
+  color: white;
+}
+
+#검색초기화:hover {
+  background-color: #5a6268;
+}
+
+#result {
+  padding: 20px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  text-align: center;
+  color: #495057;
+  font-size: 16px;
+  border: 1px dashed #ced4da;
+}

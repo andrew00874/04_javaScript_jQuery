@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>과일찾기</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/14_Ajax_GET_과일가격검색.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <label>
+          가격 :
+          <input type="number" id="price" />
+        </label>
+        <button type="button" id="검색기능">검색하기</button>
+        <button type="button" id="검색초기화">검색초기화</button>
+      </form>
+      <div id="result">가격과 일치하는 과일을 확인하세요.!</div>
+    </div>
+    <script src="../js/14_Ajax_GET_과일가격검색.js"></script>
+  </body>
+</html>
