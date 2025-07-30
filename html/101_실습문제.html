@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random USER API</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/101_실습문제.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">👤 Random User API 실습</div>
+
+      <div class="controls">
+        <button id="getUser">👤 새 사용자 가져오기</button>
+        <button id="clearUser">🗑️ 사용자 지우기</button>
+      </div>
+
+      <div id="loadingMessage" class="loading" style="display: none">
+        <div class="loading-spinner"></div>
+        사용자 정보를 불러오는 중...
+      </div>
+
+      <div id="userCard" class="user-card">
+        <!-- 동적으로 생성될 사용자 정보 -->
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <h3>🎯 버튼을 클릭해서 랜덤 사용자를 생성해보세요!</h3>
+        <p>Random User API에서 실제 데이터를 가져와 표시합니다.</p>
+      </div>
+
+      <div class="task-section">
+        <h4>🎯 구현해야 할 기능들:</h4>
+        <p>
+          <strong>1. 사용자 가져오기:</strong> $.get()으로 API 호출하여 데이터
+          가져오기
+        </p>
+        <p><strong>2. 데이터 표시:</strong> 가져온 데이터로 사용자 카드 생성</p>
+        <p><strong>3. 사용자 지우기:</strong> 현재 표시된 사용자 카드 제거</p>
+      </div>
+
+      <div class="hint-box">
+        <strong>💡 API 정보:</strong>
+        <br />• API URL: <code>https://randomuser.me/api/</code> <br />• 응답
+        데이터: <code>data.results[0]</code>로 첫 번째 사용자 접근 <br />•
+        이미지: <code>user.picture.large</code> <br />• 이름:
+        <code>user.name.first + " " + user.name.last</code>
+      </div>
+
+      <div class="hint-box">
+        <strong>🔧 필요한 jQuery 메서드:</strong>
+        <br />• <code>$.get(url, function(data) { ... })</code> - API 호출
+        <br />• <code>$("#userCard").html(content)</code> - 내용 업데이트
+        <br />• <code>$("#userCard").fadeIn(300)</code> - 애니메이션 표시
+        <br />• <code>$("#userCard").fadeOut(300)</code> - 애니메이션 숨김
+      </div>
+    </div>
+    <script src="../js/101_실습문제.js"></script>
+  </body>
+</html>
