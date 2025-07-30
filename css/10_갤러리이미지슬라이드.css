@@ -1,0 +1,32 @@
+#gallery {
+  width: 300px;
+  overflow: hidden; /* 화면 가로 넘어가면 숨김처리 */
+  position: relative;
+}
+
+.slide-wrap {
+  width: 9999px;
+  position: relative;
+  display: flex;
+}
+
+.slide {
+  width: 300px;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+button {
+  margin: 10px 5px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #333;
+  color: white;
+}
