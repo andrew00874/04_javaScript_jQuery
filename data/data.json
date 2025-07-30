@@ -1,0 +1,19 @@
+{
+  "users": {
+    "admin": {
+      "password": "1234",
+      "name": "관리자",
+      "role": "Administrator"
+    },
+    "user1": {
+      "password": "password",
+      "name": "김개발",
+      "role": "Developer"
+    },
+    "test": {
+      "password": "test",
+      "name": "박테스트",
+      "role": "Tester"
+    }
+  }
+}
