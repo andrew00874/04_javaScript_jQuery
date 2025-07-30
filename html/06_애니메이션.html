@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/06_애니메이션.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <h1>애니메이션 / 기본 시각 효과 메서드</h1>
+    <h2>기본 시각 효과 메서드</h2>
+    <pre>
+      fadeIn(ms시간초) / fadeOut(ms시간초) : 투명도 변화로 나타남 / 사라짐
+      * ms 시간초 = 500 = 0.5초 1000 = 1초
+      ex) : .fadeIn(500) : 0.5초 동안 부드럽게 나타남
+      sildeDown() / slideUp() : 슬라이드 효과로 펼침/접힘
+      show()      / hide()    : 기본 표시 / 숨김
+      toggle()                : 상태에 따라 보이기 / 숨기기 토글
+      animate()               : css 속성을 단계적으로 애니메이션 처리
+        * width, height, opacity, margin, top, left 등 조작 가능
+          ex) : .animate({css 속성 : 속성값 들}, 시간, 시간 후에 작업할 기능 설정)
+    </pre>
+    <div class="problem-section">
+      <h3>1. 모달 팝업 만들기</h3>
+      <button id="openModal">모달 열기</button>
+
+      <div id="modalOverlay" class="modal-overlay" style="display: none">
+        <div class="modal-content">
+          <button class="close-btn" id="closeModal">✕</button>
+          <h3>알림</h3>
+          <p>이것은 모달 팝업입니다!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="problem-section">
+      <h3>2. 애니메이션 탭 메뉴</h3>
+
+      <div class="tab-menu">
+        <button class="tab-btn active" data-tab="tab1">HTML</button>
+        <button class="tab-btn" data-tab="tab2">CSS</button>
+        <button class="tab-btn" data-tab="tab3">JavaScript</button>
+      </div>
+
+      <div id="tab1" class="tab-content active">
+        <h4>HTML이란?</h4>
+        <p>웹페이지의 구조를 만드는 마크업 언어입니다.</p>
+      </div>
+      <div id="tab2" class="tab-content">
+        <h4>CSS란?</h4>
+        <p>웹페이지의 스타일과 레이아웃을 정의하는 언어입니다.</p>
+      </div>
+      <div id="tab3" class="tab-content">
+        <h4>JavaScript란?</h4>
+        <p>웹페이지에 동적 기능을 추가하는 프로그래밍 언어입니다.</p>
+      </div>
+    </div>
+
+    <script src="../js/06_애니메이션.js"></script>
+  </body>
+</html>
