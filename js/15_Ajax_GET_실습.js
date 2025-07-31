@@ -8,6 +8,8 @@ $(function () {
   $("#btn4").click(loading);
   $("#btn5").click(errorHandle);
   $("#btn6").click(listing);
+  $("#btn7").click(userList);
+  $("#btn8").click(search_name);
 });
 // let url_num = Math.floor(Math.random() * 100) + 1;
 // let url_fetch = "https://jsonplaceholder.typicode.com/posts/" + url_num;
@@ -135,12 +137,17 @@ function listing() {
         $("#result6").html(
           `<div class="error">데이터에 오류가 있습니다.</div>`
         );
+        return;
       }
-      for (let i = 0; i < list.length; i++) {
-        $("#result6").append(
-          `<div class="success">${i}. ${list[i].body}</div><br>`
-        );
-      }
+      //   for (let i = 0; i < list.length; i++) {
+      //     $("#result6").append(
+      //       `<div class="success">${i}. ${list[i].body}</div><br>`
+      //     );
+      //   }
+      //data가 배열 = 목록 = 리스트 형태로 다수 존재할 경우
+      //data.map() 배열 형태를 하나씩 꺼내서 나열하는 메서드
+
+      $("#result6").html(list.map((i) => `<p><strong>${i.title}</strong></p>`));
     })
     .fail(function (err) {
       $("#result6").html(`
@@ -151,4 +158,100 @@ function listing() {
     });
 }
 
-function myIP() {}
+// function myIP() {
+//   $.get("https://httpbin.org/ip")
+//     .done(function (IP) {
+//       if (!IP) {
+//         $("#result7").html(`
+//                 <div class="error">
+//                     에러가 발생했습니다.
+//                 </div>
+//             `);
+//         return;
+//       }
+//       $("#result7").html(`
+//             <div class="success">
+//                 <strong>My IP : ${IP.origin}</strong>
+//             </div>
+//         `);
+//     })
+//     .fail(function (err) {
+//       $("#result7").html(`
+//         <div class="error">
+//             ${err.status} ${err.statusText}
+//         </div>
+//         `);
+//     });
+// }
+
+function userList() {
+  $.get("https://jsonplaceholder.typicode.com/users")
+    .done(function (data) {
+      $("#result7").html(
+        data.map(
+          (user) =>
+            `<p>유저 이름 : ${user.name}</p> <p>유저 이메일 : ${user.email}</p> <hr>`
+        )
+      );
+    })
+    .fail(function (err) {
+      $("#result7").html(
+        `<div class=error>
+            ${err.status} ${err.statusText}
+        </div>`
+      );
+    });
+}
+
+function search_name() {
+  // 1. input에서 검색할 이름을 가져옵니다.
+  const searchName = $("#searchName").val();
+
+  // 입력값이 없으면 함수를 종료합니다.
+  if (!searchName) {
+    $("#result8").html('<div class="error">검색할 이름을 입력하세요.</div>');
+    return;
+  }
+
+  $.get("https://jsonplaceholder.typicode.com/users")
+    .done(function (userList) {
+      // 2. userList 배열을 filter로 순회합니다.
+      // user.name에 검색어가 포함되어 있는지 확인합니다. (대소문자 무시)
+      const foundUsers = userList.filter(function (user) {
+        return user.name.toLowerCase().includes(searchName.toLowerCase());
+      });
+
+      // 3. 검색 결과를 화면에 표시합니다.
+      $("#result8").empty(); // 이전 결과 지우기
+
+      if (foundUsers.length > 0) {
+        // 4. 일치하는 사용자를 찾은 경우
+        $("#result8").append("<h4>검색 결과:</h4>");
+        foundUsers.map(function (user) {
+          $("#result8").append(
+            `<div class="success">이름 : ${user.name}<br>이메일 : ${user.email}<br>전화번호 : ${user.phone})</div>`
+          );
+        });
+      } else {
+        // 5. 일치하는 사용자를 찾지 못한 경우
+        $("#result8").html(
+          '<div class="error">일치하는 사용자가 없습니다.</div>'
+        );
+      }
+    })
+    .fail(function (err) {
+      $("#result8").html(`
+        <div class="error">
+            ${err.status} ${err.statusText}
+        </div>
+        `);
+    });
+}
+
+/* 
+    data.filter((user) => user.name == searchName)
+    .map(user) =>
+        `<p>${user.name}</p>
+         <p>${user.email}</p>
+        `
+*/
