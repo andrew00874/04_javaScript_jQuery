@@ -51,6 +51,9 @@ function getDogs() {
   $.get("https://api.thedogapi.com/v1/images/search?limit=10").done(function (
     data
   ) {
+    if (!data) {
+      return;
+    }
     $("#result2").html(
       data.slice(0, 5).map(
         (dog) =>
@@ -89,6 +92,21 @@ function getSelectedAnimal() {
     '<div class="loading">선택한 동물 사진을 가져오는 중...</div>'
   );
 
+  $.get(`https://api.the${selected}api.com/v1/images/search?limit=10`).done(
+    function (data) {
+      $("#result3").html(
+        data.slice(0, 5).map(
+          (animal) =>
+            `
+                <div class="photo-item">
+                    <img src="${animal.url}">
+                    <p> ID : ${animal.id}</p>
+                </div>
+            `
+        )
+      );
+    }
+  );
   // 여기에 코드 작성
   // selected 값이 "cat"이면 고양이 사진 4장
   // selected 값이 "dog"이면 강아지 사진 4장
@@ -108,6 +126,21 @@ function getCatsWithCount() {
 
   $("#result4").html('<div class="loading">고양이 사진을 가져오는 중...</div>');
 
+  $.get("https://api.thecatapi.com/v1/images/search?limit=10").done(function (
+    data
+  ) {
+    $("#result4").html(
+      data.slice(0, count).map(
+        (cats) =>
+          `
+                <div class="photo-item">
+                    <img src="${cats.url}">
+                    <p> ID : ${cats.id} </p>
+                </div>
+            `
+      )
+    );
+  });
   // 여기에 코드 작성
   // count 개수만큼 고양이 사진 가져오기
   // Array.from({length: count}, (_, i) => ...) 패턴 사용
@@ -118,9 +151,27 @@ function getRandomGallery() {
   $("#result5").html(
     '<div class="loading">🎲 랜덤 동물 갤러리를 만드는 중...</div>'
   );
-
-  // 여기에 코드 작성
-  // 고양이 4장 + 강아지 4장 = 총 8장
-  // 두 배열을 합쳐서 하나의 갤러리로 표시
-  // concat()이나 spread operator(...) 사용 가능
+  for (let i = 0; i < 10; i++){
+    if (i % 2 == 0){
+        call("dog");
+    } else{
+        call("cat");
+    }
+  }
 }
+
+function call(animal) {
+  $.get(`https://api.the${animal}api.com/v1/images/search?limit=10`).done(
+    function (data) {
+      const count = data.slice(0, 1);
+      $("#result5").html(
+        $("#result5").html() + count.map((i) => `<img src="${i.url}">`)
+      );
+    }
+  );
+}
+
+// 여기에 코드 작성
+// 고양이 4장 + 강아지 4장 = 총 8장
+// 두 배열을 합쳐서 하나의 갤러리로 표시
+// concat()이나 spread operator(...) 사용 가능
