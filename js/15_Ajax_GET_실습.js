@@ -10,6 +10,7 @@ $(function () {
   $("#btn6").click(listing);
   $("#btn7").click(userList);
   $("#btn8").click(search_name);
+  $("#btn9").click(selectAlbum);
 });
 // let url_num = Math.floor(Math.random() * 100) + 1;
 // let url_fetch = "https://jsonplaceholder.typicode.com/posts/" + url_num;
@@ -212,32 +213,36 @@ function search_name() {
     $("#result8").html('<div class="error">검색할 이름을 입력하세요.</div>');
     return;
   }
+  /*
+filter()
+배열 = 목록 = 리스트에서 조건에 맞는 것들만 골라내는 기능
+배열.filter(조건함수)
 
+data                     .     filter(      (user) =>                                 user.name == searchName)
+url에서 가져온 데이터들   에서   걸러낼게요    하나씩 data를 꺼내서 user 변수이름으로 확인  user에서 name과  소비자가 검색한 이름과 일치하는 것들만
+
+user 라는 변수이름에 담아둘게요.
+
+data                                    : url 에서 가져온 데이터를 담고있는 변수이름
+    .filter(                            : data에서 가져온 데이터들을 걸러내는 작업 진행
+        (user) =>                       : 우선은 data = user 서로 가지고있는 리스트가 동일하지만
+                                        : 추후 소비자가 찾는 이름과 user내에서 name 키로 일치하는 값만
+                                        : user 변수이름에 담아놓기 설정
+                user.name == searchName
+)
+*/
   $.get("https://jsonplaceholder.typicode.com/users")
-    .done(function (userList) {
-      // 2. userList 배열을 filter로 순회합니다.
-      // user.name에 검색어가 포함되어 있는지 확인합니다. (대소문자 무시)
-      const foundUsers = userList.filter(function (user) {
-        return user.name.toLowerCase().includes(searchName.toLowerCase());
-      });
-
-      // 3. 검색 결과를 화면에 표시합니다.
-      $("#result8").empty(); // 이전 결과 지우기
-
-      if (foundUsers.length > 0) {
-        // 4. 일치하는 사용자를 찾은 경우
-        $("#result8").append("<h4>검색 결과:</h4>");
-        foundUsers.map(function (user) {
-          $("#result8").append(
-            `<div class="success">이름 : ${user.name}<br>이메일 : ${user.email}<br>전화번호 : ${user.phone})</div>`
-          );
-        });
-      } else {
-        // 5. 일치하는 사용자를 찾지 못한 경우
-        $("#result8").html(
-          '<div class="error">일치하는 사용자가 없습니다.</div>'
-        );
-      }
+    .done(function (data) {
+      $("#result8").html(
+        data
+          .filter((user) => user.name == searchName)
+          .map(
+            (user) => `
+        <p>${user.name}</p>
+        <p>${user.email}</p>
+        `
+          )
+      );
     })
     .fail(function (err) {
       $("#result8").html(`
@@ -255,3 +260,24 @@ function search_name() {
          <p>${user.email}</p>
         `
 */
+
+function selectAlbum() {
+  const albumId = $("#albumId").val(); //사용자가 선택한 value값 가져오기
+  $.get(
+    `https://jsonplaceholder.typicode.com/albums/${albumId}/photos?_limit=3`
+  ).done(function (data) {
+    $("#result9").html(
+        //data.map 형태로 map 내부 변수이름 photo를 이용해서
+        // select 선택을 진행할 때 filter를 사용해라 를 만날 수 있다.
+        // 주소값에서 작성된 모든 데이터를 조회할 때는
+        // filter를 굳이 사용하지 않아도 됨.
+      data.map(
+        (photo) =>
+          `
+         <strong> ${photo.title} </strong>
+         <p> ${photo.url} </p>
+        `
+      )
+    );
+  });
+}
