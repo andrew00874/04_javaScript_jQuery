@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뉴스피드</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/17_뉴스피드.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <h2>📢 뉴스 피드</h2>
+
+    <div class="controls">
+      <input type="text" id="search" placeholder="검색어 입력" />
+      <select id="categoryFilter">
+        <option value="all">전체</option>
+        <option value="기술">기술</option>
+        <option value="생활">생활</option>
+      </select>
+      <button id="loadBtn">뉴스 불러오기</button>
+    </div>
+
+    <div id="newsContainer"></div>
+
+    <script src="../js/17_뉴스피드.js"></script>
+  </body>
+</html>

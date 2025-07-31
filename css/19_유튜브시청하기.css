@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+  padding: 1em;
+}
+.search-container {
+  margin-bottom: 1em;
+}
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1em;
+}
+.movie-card img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+.movie-card h3 {
+  font-size: 1em;
+  margin: 0.5em 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.movie-card p {
+  font-size: 0.9em;
+  color: #555;
+  margin: 0;
+}
+#loading {
+  padding: 20px;
+  text-align: center;
+}

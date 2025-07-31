@@ -151,19 +151,21 @@ function getRandomGallery() {
   $("#result5").html(
     '<div class="loading">🎲 랜덤 동물 갤러리를 만드는 중...</div>'
   );
-  for (let i = 0; i < 10; i++){
-    if (i % 2 == 0){
-        call("dog");
-    } else{
-        call("cat");
-    }
-  }
+  call("cat");
+  call("dog");
+  //   for (let i = 0; i < 10; i++){
+  //     if (i % 2 == 0){
+  //         call("dog");
+  //     } else{
+  //         call("cat");
+  //     }
+  //   }
 }
 
 function call(animal) {
   $.get(`https://api.the${animal}api.com/v1/images/search?limit=10`).done(
     function (data) {
-      const count = data.slice(0, 1);
+      const count = data.slice(0, 4);
       $("#result5").html(
         $("#result5").html() + count.map((i) => `<img src="${i.url}">`)
       );

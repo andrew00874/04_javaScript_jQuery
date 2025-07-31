@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>유튜브 시청하기</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/19_유튜브시청하기.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <h1>jQuery 영화 검색</h1>
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="영화 제목"
+        value="heat waves"
+      />
+      <button id="searchButton">검색</button>
+    </div>
+
+    <div id="loading" style="display: none">검색 중...</div>
+    <div id="results"></div>
+
+    <script src="../js/19_유튜브시청하기.js"></script>
+  </body>
+</html>
