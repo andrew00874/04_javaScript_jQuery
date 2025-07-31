@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Ajax $get 실습문제 10개</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/15_Ajax_GET_실습.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <h1>jQuery AJAX $.get() 실습문제 10개</h1>
+    <p>각 문제를 클릭해서 AJAX 요청을 실습해보세요!</p>
+
+    <!-- 1: 기본 텍스트 가져오기 -->
+    <div class="problem">
+      <h3>1: 기본 텍스트 데이터 가져오기</h3>
+      <p>JSONPlaceholder API에서 첫 번째 게시물 제목을 가져와 보세요.</p>
+      <button id="btn1">게시물 제목 가져오기</button>
+      <div id="result1" class="result"></div>
+    </div>
+
+    <!-- 2: 사용자 정보 가져오기 -->
+    <div class="problem">
+      <h3>2: 사용자 정보 표시하기</h3>
+      <p>사용자 ID를 입력하면 해당 사용자의 이름과 이메일을 표시하세요.</p>
+      <input
+        type="number"
+        id="userId"
+        placeholder="사용자 ID (1-10)"
+        min="1"
+        max="10"
+      />
+      <button id="btn2">사용자 정보 가져오기</button>
+      <div id="result2" class="result"></div>
+    </div>
+
+    <!-- 3: 랜덤 명언 가져오기 -->
+    <div class="problem">
+      <h3>3: 랜덤 명언 가져오기</h3>
+      <p>Quotable API에서 랜덤 명언을 가져와 표시하세요.</p>
+      <button id="btn3">랜덤 명언 가져오기</button>
+      <div id="result3" class="result"></div>
+    </div>
+
+    <!-- 4: 로딩 상태 표시 -->
+    <div class="problem">
+      <h3>4: 로딩 상태 표시하기</h3>
+      <p>데이터를 가져올 때 로딩 메시지를 표시하고, 완료되면 숨기세요.</p>
+      <button id="btn4">댓글 가져오기 (로딩 표시)</button>
+      <div id="result4" class="result"></div>
+    </div>
+
+    <!-- 5: 에러 처리 -->
+    <div class="problem">
+      <h3>5: 에러 처리하기</h3>
+      <p>존재하지 않는 URL로 요청을 보내고 에러를 처리하세요.</p>
+      <button id="btn5">에러 요청 보내기</button>
+      <div id="result5" class="result"></div>
+    </div>
+
+    <!-- 6: 여러 게시물 목록 -->
+    <div class="problem">
+      <h3>문제 6: 게시물 목록 가져오기</h3>
+      <p>여러 게시물을 가져와서 목록으로 표시하세요.</p>
+      <button id="btn6">게시물 목록 가져오기</button>
+      <div id="result6" class="result"></div>
+    </div>
+
+    <!-- 7: 날씨 정보 -->
+    <div class="problem">
+      <h3>7: 공개 API 활용하기</h3>
+      <p>httpbin.org API를 사용해서 현재 IP 정보를 가져오세요.</p>
+      <button id="btn7">내 IP 정보 가져오기</button>
+      <div id="result7" class="result"></div>
+    </div>
+
+    <!-- 8: 검색 기능 -->
+    <div class="problem">
+      <h3>문제 8: 검색 기능 구현하기</h3>
+      <p>사용자 이름으로 검색하여 해당 사용자를 찾으세요.</p>
+      <input type="text" id="searchName" placeholder="사용자 이름 입력" />
+      <button id="btn8">사용자 검색</button>
+      <div id="result8" class="result"></div>
+    </div>
+
+    <!-- 9: 카테고리별 데이터 -->
+    <div class="problem">
+      <h3>문제 9: 선택된 항목에 따른 데이터 가져오기</h3>
+      <p>앨범 ID를 선택하면 해당 앨범의 사진들을 가져오세요.</p>
+      <select id="albumId">
+        <option value="">앨범 선택</option>
+        <option value="1">앨범 1</option>
+        <option value="2">앨범 2</option>
+        <option value="3">앨범 3</option>
+      </select>
+      <button onclick="problem9()">앨범 사진 가져오기</button>
+      <div id="result9" class="result"></div>
+    </div>
+
+    <!-- 10: 종합 실습 -->
+    <div class="problem">
+      <h3>10: 종합 실습 - 대시보드</h3>
+      <p>여러 API를 동시에 호출해서 간단한 대시보드를 만드세요.</p>
+      <button onclick="problem10()">대시보드 로드</button>
+      <div id="result10" class="result"></div>
+    </div>
+
+    <script src="../js/15_Ajax_GET_실습.js"></script>
+  </body>
+</html>
