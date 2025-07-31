@@ -255,10 +255,11 @@ data                                    : url 에서 가져온 데이터를 담�
 
 /* 
     data.filter((user) => user.name == searchName)
-    .map(user) =>
+    .map((user) =>
         `<p>${user.name}</p>
          <p>${user.email}</p>
         `
+    )
 */
 
 function selectAlbum() {

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강아지고양이사진</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/16_강아지고양이사진조회.css" />
+    <link rel="icon" type="image/png" href="../img/pumpkin.png" />
+  </head>
+  <body>
+    <h1>🐱🐶 고양이/강아지 사진 가져오기 실습</h1>
+
+    <!-- 문제 1: 고양이 사진 3장 가져오기 -->
+    <div class="problem">
+      <h3>문제 1: 고양이 사진 3장 가져오기</h3>
+      <p>버튼을 클릭하면 귀여운 고양이 사진 3장을 가져와서 표시하세요.</p>
+      <button id="btn1">고양이 사진 3장 가져오기</button>
+      <div id="result1" class="result"></div>
+    </div>
+
+    <!-- 문제 2: 강아지 사진 5장 가져오기 -->
+    <div class="problem">
+      <h3>문제 2: 강아지 사진 5장 가져오기</h3>
+      <p>버튼을 클릭하면 귀여운 강아지 사진 5장을 가져와서 표시하세요.</p>
+      <button id="btn2">강아지 사진 5장 가져오기</button>
+      <div id="result2" class="result"></div>
+    </div>
+
+    <!-- 문제 3: 사용자가 선택한 동물 사진 가져오기 -->
+    <div class="problem">
+      <h3>문제 3: 동물 선택해서 사진 가져오기</h3>
+      <p>드롭다운에서 동물을 선택하고 버튼을 클릭하세요.</p>
+      <select id="animalSelect">
+        <option value="">동물 선택</option>
+        <option value="cat">고양이</option>
+        <option value="dog">강아지</option>
+      </select>
+      <button id="btn3">선택한 동물 사진 가져오기</button>
+      <div id="result3" class="result"></div>
+    </div>
+
+    <!-- 문제 4: 사진 개수 입력해서 가져오기 -->
+    <div class="problem">
+      <h3>문제 4: 원하는 개수만큼 고양이 사진 가져오기</h3>
+      <p>가져올 사진 개수를 입력하고 버튼을 클릭하세요. (1-10개)</p>
+      <input
+        type="number"
+        id="photoCount"
+        placeholder="사진 개수 (1-10)"
+        min="1"
+        max="10"
+      />
+      <button id="btn4">고양이 사진 가져오기</button>
+      <div id="result4" class="result"></div>
+    </div>
+
+    <!-- 문제 5: 랜덤 동물 사진 갤러리 -->
+    <div class="problem">
+      <h3>문제 5: 랜덤 동물 사진 갤러리</h3>
+      <p>고양이와 강아지 사진을 섞어서 8장 가져와서 갤러리로 표시하세요.</p>
+      <button id="btn5">랜덤 동물 갤러리 만들기</button>
+      <div id="result5" class="result"></div>
+    </div>
+    <script src="../js/16_강아지고양이사진조회.js"></script>
+  </body>
+</html>

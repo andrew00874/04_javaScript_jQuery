@@ -1,0 +1,91 @@
+body {
+  font-family: "Malgun Gothic", sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f8ff;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.problem {
+  background: white;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.problem h3 {
+  color: #4a4a4a;
+  border-left: 4px solid #ff6b6b;
+  padding-left: 15px;
+  margin-top: 0;
+}
+
+button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 8px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #ff5252;
+}
+
+.result {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  min-height: 60px;
+}
+
+.loading {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.photo-item {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+.photo-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+input,
+select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
