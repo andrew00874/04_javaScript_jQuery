@@ -1,10 +1,26 @@
 $(function () {
-    // .click() 내부에 함수를 작성할 때 : 기능명칭만 작성하고 () 제외
-    // 특별히 메서드 내부에 함수를 작성하지 않고, 단독으로 함수를 작성할 때
-    // 기능명칭();
+  // .click() 내부에 함수를 작성할 때 : 기능명칭만 작성하고 () 제외
+  // 특별히 메서드 내부에 함수를 작성하지 않고, 단독으로 함수를 작성할 때
+  // 기능명칭();
   $("#loginBtn").click(loginCheck);
+  $("#logoutBtn").click(() => {
+    $(".form-group").show();
+    $("#loginBtn").show();
+    $("#logoutBtn").hide();
+    $("#loginResult").html(`
+        <div class="success">
+            로그아웃이 완료되었습니다.
+            </div>
+        `);
+    $("#username").val("");
+    $("#password").val("");
+    setTimeout(function () {
+      $("#loginResult").html("");
+    }, 1000);
+  });
 });
 
+$("#logoutBtn").hide();
 function loginCheck() {
   const username = $("#username").val();
   const password = $("#password").val();
@@ -28,6 +44,8 @@ function loginCheck() {
     (username === "admin" && password === "1234") ||
     (username === "user" && password === "1234")
   ) {
+    //1. form-group 숨김처리, loginBtn -> 로그아웃 버튼으로 변경
+    //2. 로그아웃 버튼 클릭했을 경우 form-group 보이고 로그인 버튼으로 변경
     $("#loginResult").html(
       `
         <div class="success">
@@ -36,6 +54,9 @@ function loginCheck() {
         </div>
         `
     );
+    $(".form-group").hide();
+    $("#loginBtn").hide();
+    $("#logoutBtn").show();
   } else {
     $("#loginResult").html(
       `
