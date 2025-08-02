@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoL Tracker
+    </title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+</head>
+
+<body>
+    <h1>라이엇 API 실습</h1>
+    <hr>
+    <h2>나의 고유번호 조회</h2>
+    <div>
+        <!-- 소니누키 / KR1 -->
+        <input type="text" id="gameName" placeholder="이름을 입력하세요. (대,소문자 구별 X)" />
+        <input type="text" id="Tag" placeholder="태그를 입력하세요." />
+        <button type="button" id="doSearch">검색하기</button>
+        <div>
+            <span>나의 Puuid(고유번호) : </span>
+            <span id="myPuuid"></span>
+            <button type="button" id="clipBoard">클립보드에 복사하기</button>
+        </div>
+    </div>
+    <hr>
+    <h2>나의 숙련도 Top3 챔피언</h2>
+    <div>
+        <input type="text" id="myid" placeholder="고유번호를 입력하세요." />
+        <button type="button" id="top3">검색하기</button>
+    </div>
+    <div id="mastery-display"></div>
+    <hr>
+    <!-- <h2>최근 3판 전적</h2>
+    <div>
+        <button type="button" id="history3">검색하기</button>
+    </div> -->
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
+
+<!-- [
+"KR_7739044080",
+"KR_7739007444",
+"KR_7738972241"
+] -->
