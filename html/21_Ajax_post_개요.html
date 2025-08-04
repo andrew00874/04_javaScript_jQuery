@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax POST</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/21_Ajax_post_개요.css" />
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+  </head>
+  <body>
+    <h1>Ajax.post() 개요</h1>
+    <pre>
+        $.post() 는 jquery 메서드로 HTTP POST 요청을 서버로 전송
+
+        <code>
+            $.post(URL, data, success_callback, dataType)
+
+            비동기 통신 : 페이지 새로고침 없이 서버와 통신
+            데이터 전송 : JSON, 폼 데이터 등을 서버로 전송
+            간편한 사용 : $.ajax()의 단축 버전
+        </code>
+        <code>
+            // 기본 사용법
+            $.post(
+                'URL 주소',
+            {
+                서버로 전송할 column key1 : '서버에 저장할 데이터 값1',
+                서버로 전송할 column key2 : '서버에 저장할 데이터 값2',
+                서버로 전송할 column key3 : '서버에 저장할 데이터 값3',
+            }
+            )
+            .done(
+                function(res) {
+                    console.log("데이터 서버로 전달하는 것에 성공하였습니다.")
+                }
+            )
+            .fail(
+                function(error) {
+                    console.log("데이터 서버로 전달하는 것에 실패하였습니다.")
+                }
+            )
+            .always(성공/실패 결과에 상관없이 마지막에 무조건 실행하는 함수 / optional)
+        </code>
+
+        약속 체이닝(promise) : 비동기 작업을 순차적으로 연결(기차칸을 연결하듯이 여러 작업을 붙이는 것)
+                              비동기 함수의 처리 결과를 가지고 다른 비동기 함수 호출하는 경우
+                              함수끼리의 호출이 중첩되어 복잡도가 높아짐
+                              후속 처리 기능을 체이닝 하여 여러 개의 약속을 연결하여 사용 할 수 있음
+
+                              약속 (promise) : 나중에 줄게 와 같이 추후에 작업할 것을 얘기하는 것
+                                                1. 대기 : 잠깐 기다려
+                                                2. 성공 : 작업을 수행 했을 경우에 따른 결과
+                                                3. 실패 : 작업을 하지 못했을 경우에 따른 결과
+
+                              체이닝 (chaining) : 사슬 처럼 기능 연결
+
+                              promise + Chaining = 해야하는 기능을 약속처럼 줄줄이 연결하기
+                              주문하기()
+                                .done() -> 주문하기 성공에 따른 기능 체이닝 된 상태
+                                .fail() -> 주문하기 실패에 따른 기능 체이닝 된 상태
+                                <code>
+                                    //약속 체이닝 (Promise)
+                                    $.post('/api/signup', userData)
+                                     .done(처리성공함수)
+                                     .fail(에러처리함수)
+                                     .always(성공/에러 여부 관계 없이 마지막에 항상 실행하는 함수)
+                                </code>
+    </pre>
+    <h3>브라우저 보안 정책과 파일 시스템 접근(local Storage)</h3>
+    <pre>
+        데이터를 저장할 때 다양한 방법이 존재
+
+        1) DB저장
+            개념 : 서버의 데이터베이스(MySQL, Oracle, MongoDB 등에 저장)
+            장점 : 대용량 데이터 저장 가능, 여러 사용자가 공유 가능, 영구 저장, 복잡한 쿼리 가능, 보안성 높음
+            단점 : 서버 구축 필요, 비용 발생, 네트워크 연결 필수, 설정이 복잡
+
+            방법 : 다양한 방법 존재, 주로 DB에 저장하는 형태
+                    Java, NodeJS를 이용하여 다수 저장
+            시기 : 실제 서비스, 회원정보, 중요데이터 저장
+
+        2) json 형태 저장(nodeJS를 사용하기 전에는 지양)
+            개념 : DB 대신 컴퓨터나 서버의 파일 시스템에 .json 파일로 저장
+                    엑셀형식, 한글파일형식, txt 형식 다양한 형태로 저장이 가능
+                    json 형태로 저장하고 읽는 것이 빠르기 때문에 json 형태로 주로 읽고 저장
+                    json 존재하는 파일을 읽는 용도, 저장하는 용도 XXX
+
+                    NodeJS 나 java와 같은 서버를 통해서만 저장 가능
+
+            단점 : 브라우저에서는 직접적으로 사용 불가능
+
+            시기 : 개발 중 테스트, 소규모 프로젝트, 설정 파일 저장
+            
+        3) localStorage 저장
+            개념 : 브라우저의 로컬 저장소에 저장
+            장점 : 서버 불필요, 즉시사용가능, 간단한 API, 페이지 새로고침해도 유지, 빠른 속도
+            단점 : 5~10MB 용량 제한, 브라우저 별로 독립적, 사용자가 삭제 가능, 문자열만 저장 가능, 보안 취약
+            시기 : 임시 데이터, 사용자 설정, 장바구니, 학습 / 연습용
+            저장 위치 : 개별 컴퓨터의 브라우저 내부에 위치
+            
+    </pre>
+    <script src="../js/21_Ajax_post_개요.js"></script>
+  </body>
+</html>
