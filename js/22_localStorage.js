@@ -63,6 +63,10 @@ function signUp(e) {
   localStorage.setItem("userpw", userpw);
 
   // 모두 저장하고 나서 결과 페이지로 이동
+  // window = JS 에서 모든 객체의 최상위 부모
+  // window 내부에 document 와 location, history와 같은 객체가 존재
+
+  // 내 컴퓨터에서 . 주소가 .링크로 되어있는 = 로 이동
   window.location.href = "22_result.html";
 }
 /**
