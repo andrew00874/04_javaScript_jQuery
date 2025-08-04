@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 500px;
+  margin: 20px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.user-list {
+  margin: 20px 0;
+  min-height: 100px;
+}
+
+.user-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.user-id {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.user-pw {
+  color: #666;
+}
+
+.no-users {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  font-style: italic;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #2196f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #1976d2;
+}
+
+#clear-all {
+  background-color: #f44336;
+}
+
+#clear-all:hover {
+  background-color: #d32f2f;
+}
