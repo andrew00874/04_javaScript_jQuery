@@ -1,4 +1,5 @@
 $(function () {
+  $(".attrDiv").attr("style", "background-color : black");
   $("#changeImage").click(imgFn);
   $("#changeAlt").click(altFn);
   $("#changeLink").click(linkFn);
