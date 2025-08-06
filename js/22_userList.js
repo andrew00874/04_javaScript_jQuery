@@ -1,6 +1,18 @@
 $(function () {
   showUsers();
+  $("#clear-all").click(removeAllUsers);
 });
+
+function removeAllUsers(e) {
+  e.preventDefault();
+  if (confirm("정말 모든 회원을 삭제하시겠습니까?")) {
+    localStorage.removeItem("userList");
+
+    alert("모든 회원 정보가 삭제되었습니다.");
+
+    location.reload();
+  }
+}
 
 function showUsers() {
   // 기존 회원 목록 가져오기 (없으면 빈 배열 형태) 가져온 값을 userList 변수이름에 담아두기

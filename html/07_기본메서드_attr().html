@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>07_기본메서드_attr</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/07_기본메서드_attr().css" />
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>jQuery .attr() 사용하기</h1>
+
+      <h3>1. 이미지 속성 변경</h3>
+      <img
+        id="moviePoster"
+        src="https://via.placeholder.com/200x300/74b9ff/white?text=기본이미지"
+        alt="기본 이미지"
+      />
+      <br />
+      <button id="changeImage">이미지 변경</button>
+      <button id="changeAlt">alt 텍스트 변경</button>
+
+      <h3>2. 링크 주소 변경</h3>
+      <a id="link" href="#" target="_blank">클릭해보세요</a>
+      <br />
+      <button id="changeLink">구글로 링크 변경</button>
+
+      <h3>3. 입력창 속성</h3>
+      <input type="text" id="textInput" placeholder="여기에 입력하세요" />
+      <br />
+      <button id="disableInput">입력창 비활성화</button>
+      <button id="enableInput">입력창 활성화</button>
+
+      <h3>4. 체크박스 상태</h3>
+      <input type="checkbox" id="checkbox" /> 체크박스
+      <br />
+      <button id="checkAttr">attr() 체크 상태 확인</button>
+      <button id="checkProp">prop() 체크 상태 확인</button>
+
+      <h3>5. 데이터 속성</h3>
+      <div id="dataElement">데이터 요소</div>
+      <br />
+      <button id="setData">data-id 설정</button>
+      <button id="getData">data-id 가져오기</button>
+    </div>
+    <div class="container attrDiv">
+        <h1>.attr() 메서드</h1>
+        <pre>
+            HTML 요소의 속성(attribute)를 조작하는 메서드(기능 = 함수 = 행동)
+            주로 &lt;a&gt; 태그나 &lt;img&gt; 태그에 많이 사용하나
+            모든 태그에 사용 가능
+            1. 속성값 가져오기
+            $("선택자").attr('속성명');
+    
+            2. 속성 값 설정하기
+            $("선택자").attr('속성명', '값');
+    
+            3. 여러 속성 동시 설정
+            $("선택자").attr('속성명1', '값1').attr('속성명2', '값2');
+        </pre>
+    </div>
+    <script src="../js/07_기본메서드_attr().js"></script>
+  </body>
+</html>

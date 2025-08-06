@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/24_signup.css" />
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+  </head>
+  <body>
+    <h2>회원가입</h2>
+    <form id="signupForm">
+      <label
+        >이메일
+        <input type="email" id="inputEmail" readonly />
+        <button type="button" id="emailCheck">중복확인</button>
+      </label>
+      <label
+        >전화번호
+        <input type="tel" id="phone" required />
+      </label>
+      <button type="submit">회원가입</button>
+    </form>
+
+    <script src="../js/24_signup.js"></script>
+  </body>
+</html>

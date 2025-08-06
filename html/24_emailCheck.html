@@ -1,19 +1,24 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>제품상세보기</title>
+    <title></title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../css/23_제품상세보기.css" />
+    <link rel="stylesheet" href="../css/24_emailCheck.css" />
     <link rel="icon" type="image/png" href="../img/logo.png" />
   </head>
   <body>
-    
-    <script src="../js/23_제품상세보기.js"></script>
+    <h3>이메일 중복확인</h3>
+    <input type="email" id="childEmail" placeholder="이메일 입력" />
+    <button id="check">확인</button>
+    <p id="result"></p>
+    <button id="send" disabled>사용하기</button>
+
+    <script src="../js/24_emailCheck.js"></script>
   </body>
 </html>

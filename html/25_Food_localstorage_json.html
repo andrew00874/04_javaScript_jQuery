@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/25_Food_localstorage_json.css" />
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+  </head>
+  <body>
+    <h1>🍽️ 음식 데이터 localStorage 관리</h1>
+
+    <div class="container">
+      <h2>1️⃣ 음식 데이터 추가하기</h2>
+      <input type="text" id="foodName" placeholder="음식명 (예: 김치찌개)" />
+      <input type="number" id="price" placeholder="가격 (예: 8000)" />
+      <input type="text" id="category" placeholder="카테고리 (예: 한식)" />
+      <button id="addBtn">음식 추가</button>
+
+      <div id="addResult" class="result"></div>
+    </div>
+
+    <div class="container">
+      <h2>2️⃣ 음식 검색하기</h2>
+      <input type="text" id="searchValue" placeholder="검색할 음식명" />
+      <button id="searchBtn">검색하기</button>
+
+      <div id="searchResult" class="result"></div>
+    </div>
+
+    <div class="container">
+      <h2>3️⃣ 저장된 모든 음식 데이터</h2>
+      <button id="showAllBtn">모든 음식 보기</button>
+      <button id="clearAllBtn">모든 음식 삭제</button>
+
+      <div id="allData" class="storage-view"></div>
+    </div>
+
+    <script src="../js/25_Food_localstorage_json.js"></script>
+  </body>
+</html>

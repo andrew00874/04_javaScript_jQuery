@@ -1,0 +1,246 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f8ff;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  color: #4caf50;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+input,
+button,
+select {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input {
+  width: 200px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#clearAllBtn {
+  background-color: #f44336;
+}
+
+#clearAllBtn:hover {
+  background-color: #da190b;
+}
+
+.delete-btn {
+  background-color: #f44336 !important;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #da190b !important;
+}
+
+.result {
+  background-color: #e8f5e8;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border-left: 4px solid #4caf50;
+  display: none;
+}
+
+.storage-view {
+  background-color: #fff3cd;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #ffc107;
+  min-height: 100px;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.item-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-left-color: #45a049;
+}
+
+.item-row div {
+  flex: 1;
+}
+
+.item-row strong {
+  font-size: 18px;
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.json-display {
+  background-color: #2d3748;
+  color: #e2e8f0;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Courier New", monospace;
+  margin: 10px 0;
+  overflow-x: auto;
+  border: 2px solid #4a5568;
+}
+
+.json-display h4 {
+  color: #63b3ed;
+  margin-top: 0;
+  text-align: center;
+}
+
+.json-display pre {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.step {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border-left: 4px solid #007bff;
+}
+
+#searchResult .item-row {
+  border-left-color: #007bff;
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+}
+
+#searchResult .item-row:hover {
+  border-left-color: #0056b3;
+}
+
+.storage-view p {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  margin: 40px 0;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  input {
+    width: 90%;
+    margin: 5px 0;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .item-row {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .delete-btn {
+    margin: 10px 0 0 0;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item-row {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.item-row[data-category="한식"] {
+  border-left-color: #e74c3c;
+}
+
+.item-row[data-category="중식"] {
+  border-left-color: #f39c12;
+}
+
+.item-row[data-category="일식"] {
+  border-left-color: #9b59b6;
+}
+
+.item-row[data-category="양식"] {
+  border-left-color: #3498db;
+}
