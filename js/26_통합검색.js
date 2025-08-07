@@ -7,7 +7,6 @@ $(function () {
   });
 });
 
-// searchFn 함수를 아래 코드로 교체하세요.
 function searchFn() {
   $.get("../json/books.json").done((data) => {
     const searchInput = $("#searchInput").val().trim();
